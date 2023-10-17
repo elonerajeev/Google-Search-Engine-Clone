@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Link to your custom CSS file (style.css) -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Include Google's Material Icons font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- Container for centering content -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="text-center">
+                    <!-- Google Logo -->
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" width="300" alt="Google Logo">
+                </div>
+                <!-- Search Form -->
+                <form id="searchForm" class="mt-3">
+                    <div class="input-group">
+                        <!-- Search Input -->
+                        <input id="searchInput" type="text" class="form-control" placeholder="Search Google">
+                        <div class="input-group-append">
+                            <!-- Search Button -->
+                            <button type="submit" class="btn btn-outline-secondary">Search</button>
+                            <!-- Microphone Icon -->
+                            <span class="input-group-text" id="microphone">
+                                <i class="material-icons">mic</i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center mt-3">
+                    <!-- Links to Google Search and Images -->
+                    <a href="https://www.google.com">Google Search</a>
+                    <a href="https://www.google.com/imghp">Images</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Trending Keywords Section (Inline order) -->
+   <div class="text-center mt-3 trending-keywords">
+    <h5>Trending Keywords:</h5>
+    <span><a href="https://www.youtube.com/" target="_blank">YouTube</a></span>
+    <span><a href="https://www.learntube.com/" target="_blank">LearnTube</a></span>
+    <span><a href="https://www.instagram.com/" target="_blank">Instagram</a></span>
+    <span><a href="https://www.facebook.com/" target="_blank">Facebook</a></span>
+    <span><a href="https://www.x.com/" target="_blank">X.com</a></span>
+    <span><a href="https://www.flipkart.com/" target="_blank">FlipKart</a></span>
+    <span><a href="https://www.amazon.com/" target="_blank">Amazon</a></span>
+    <span><a href="https://www.bigboss.com/" target="_blank">BigBoss</a></span>
+    <span><a href="https://www.shahrukhkhan.com/" target="_blank">ShahRuKhan</a></span>
+    <span><a href="https://www.google.com/" target="_blank">Google</a></span>
+    <span><a href="https://www.elonmusk.com/" target="_blank">Elon Musk</a></span>
+    <span><a href="https://www.elonerajeev.ai/" target="_blank">Elonerajeev.ai</a></span>
+</div>
+
+
+
+    <!-- JavaScript for Voice Recognition and Form Submission -->
+    <script>
+        // Get references to the microphone icon and search input
+        const microphoneIcon = document.getElementById("microphone");
+        const searchInput = document.getElementById("searchInput");
+
+        // Check for Web Speech API support
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
+
+            // When the microphone icon is clicked, start voice recognition
+            microphoneIcon.addEventListener("click", () => {
+                recognition.start();
+
+                // When voice input is recognized, insert it into the search input
+                recognition.onresult = (event) => {
+                    const voiceText = event.results[0][0].transcript;
+                    searchInput.value = voiceText;
+                };
+            });
+        } else {
+            // Hide the microphone icon if Web Speech API is not supported
+            microphoneIcon.style.display = 'none';
+        }
+
+        // When the search form is submitted, prevent the default form submission and redirect to Google search results
+        document.getElementById("searchForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const searchQuery = searchInput.value;
+            if (searchQuery.trim() !== "") {
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(searchQuery);
+            }
+        });
+    </script>
+</body>
+</html>
