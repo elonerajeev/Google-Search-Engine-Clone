@@ -1,0 +1,70 @@
+/* Add CSS to make the search box round */
+#searchInput {
+    border-radius: 20px; /* Adjust the border-radius value as needed */
+}
+
+body{
+    margin-top: 100px;
+}
+#searchInput
+{
+    width: 50%;
+    height: 45px;
+}
+/* Add a box shadow to the search box on hover */
+#searchInput:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Adjust the values as needed */
+}
+
+#microphone {
+    color: #4285f4;
+    cursor: pointer;/
+    /* Google Blue */
+}
+
+.text-center a {
+    margin: 0 20px;
+    /* Adjust the margin as needed */
+}
+/* Style for the "Trending Keywords" section */
+.trending-keywords {
+    margin-top: 20px;
+    /* Add some top margin */
+    text-align: center;
+    /* Center-align the content */
+}
+
+.trending-keywords h3 {
+    font-size: 24px;
+    /* Set the heading font size */
+    color: #4285f4;
+    /* Google Blue */
+}
+
+.trending-keywords ul {
+    list-style-type: none;
+    /* Remove bullet points */
+}
+
+.trending-keywords li {
+    display: inline;
+    /* Display keywords inline */
+    margin: 0 10px;
+    /* Add margin between keywords */
+}
+
+.trending-keywords a {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: #4285f4;
+    /* Text color */
+    font-weight: bold;
+    /* Set keyword text to bold */
+}
+
+.trending-keywords a:hover {
+    color: blue;
+    text-decoration: underline;
+    /* Hover color */
+}
